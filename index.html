@@ -17,24 +17,76 @@
         </script>
 
         <script type="text/ng-template" id="/admin.html">
-            <form ng-submit="addPost()"
+            <form ng-submit="addBag()"
                   style="margin-top:30px;">
-                <h3>Add a new post</h3>
+                <h3>Add a new bag</h3>
 
                 <div class="form-group">
                     <input type="text"
                            class="form-control"
                            placeholder="Title"
+                           ng-model="title"
                            >
+                </div>
+                <div class="form-group">
+                    <textarea
+                           class="form-control"
+                           rows="5"
+                           placeholder="Description"
+                           ng-model="desc"
+                            >
+                    </textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Picture"
+                           ng-model="pic"
+                            >
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+
+            <form ng-submit="addQuote()"
+                  style="margin-top:30px;">
+                <h3>Add a new quote</h3>
+                <div class="form-group">
+                    <textarea
+                            class="form-control"
+                            rows="5"
+                            placeholder="Quote"
+                            ng-model="quote"
+                            >
+                    </textarea>
                 </div>
                 <div class="form-group">
                     <input type="text"
                            class="form-control"
-                           placeholder="Link"
-                           >
+                           placeholder="Author"
+                           ng-model="author"
+                            >
                 </div>
-                <button type="submit" class="btn btn-primary">Post</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+
+            <form ng-submit="changePrice()"
+                  style="margin-top:30px;">
+                <h3>Change price</h3>
+
+                <div class="form-group">
+                    <input type="number"
+                           class="form-control"
+                           placeholder="%"
+                           ng-model="percantage"
+                            >
+                </div>
             </form>
+
+            <div ng-repeat="bag in bags | orderBy:'price'">
+                <img src="{{bag.pic}}" alt="">
+                {{bag.title}}  {{bag.price}} грн
+            </div>
         </script>
 
     </div>

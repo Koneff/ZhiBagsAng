@@ -3,15 +3,8 @@ angular.module('zhibags.controllers',['zhibags.services'])
         '$scope',
         'bags',
         function($scope, bags){
-            //$scope.bags = bags.bags;
+            $scope.bags = bags.bags;
 
-            $scope.bags = [
-                'post 1',
-                'post 2',
-                'post 3',
-                'post 4',
-                'post 5'
-            ];
 
             }
         ])
@@ -19,8 +12,37 @@ angular.module('zhibags.controllers',['zhibags.services'])
     .controller('AdminCtrl', [
         '$scope',
         'bags',
-        function($scope, bags){
+        'quotes',
+        function($scope, bags,quotes){
             $scope.bags = bags.bags;
+            $scope.quotes = quotes.quotes;
+            $scope.addBag = function(){
+                if(!$scope.title || $scope.title === '') { return; }
+                $scope.bags.push({
+                    title: $scope.title,
+                    desc: $scope.desc,
+                    pic: $scope.pic,
+                    price: 140
+                });
+                $scope.title = '';
+                $scope.desc = '';
+                $scope.pic = '';
+            };
 
+            $scope.addQuote = function(){
+                if(!$scope.quote || $scope.quote === '') { return; }
+                $scope.quotes.push({
+                    quote: $scope.quote,
+                    author: $scope.author
+                });
+                $scope.quote = '';
+                $scope.author = '';
+
+            };
+
+            $scope.changePrice = function(bag){
+
+            };
         }
+
     ])

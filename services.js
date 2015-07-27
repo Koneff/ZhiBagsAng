@@ -4,4 +4,11 @@ angular.module('zhibags.services',[])
             bags: []
         };
         return o;
-    }]);
+    }])
+
+    .factory('quotes', [function(){
+        var o = {
+            quotes: []
+        };
+        return o;
+    }])
