@@ -19,20 +19,20 @@ angular.module('zhibags.services',[])
     }])
 
     .factory('quotes', ['$http',function($http){
-        var o = {
+        var w = {
             quotes: []
         };
 
-        o.getAll = function(){
+        w.getAll = function(){
             return $http.get('/quotes').success(function(data){
-                angular.copy(data, o.quotes);
+                angular.copy(data, w.quotes);
             })
         };
 
-        o.create = function(quote){
+        w.create = function(quote){
             return  $http.post('/quotes',quote).success(function(data){
-                o.quotes.push(data);
+                w.quotes.push(data);
             });
         };
-        return o;
-    }])
+        return w;
+    }]);

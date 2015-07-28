@@ -10,7 +10,10 @@ function($stateProvider,$urlRouterProvider){
             controller: 'MainCtrl',
             resolve: {
                 bagPromise: ['bags', function (bags) {
-                    return bags.getAll()
+                    return bags.getAll();
+                }],
+                quotePromise: ['quotes', function (quotes) {
+                    return quotes.getAll();
                 }]
             }
         }
@@ -19,12 +22,7 @@ function($stateProvider,$urlRouterProvider){
         'admin',{
             url: '/admin',
             templateUrl: '/admin.html',
-            controller: 'AdminCtrl',
-            resolve: {
-                bagPromise: ['bags',function(bags){
-                    return bags.getAll()
-                }]
-            }
+            controller: 'AdminCtrl'
         }
     );
     $urlRouterProvider.otherwise('home');

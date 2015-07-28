@@ -13,6 +13,10 @@
     <div class="col-md-6 col-md-offset-3">
         <ui-view></ui-view>
         <script type="text/ng-template" id="/home.html">
+            <div ng-repeat="quote in quotes">
+                {{quote.quote}}  {{quote.author}}
+            </div>
+
             <div ng-repeat="bag in bags | orderBy:'price'">
                 <img src="{{bag.pic}}" alt="">
                 {{bag.title}}  {{bag.price}} грн
@@ -86,10 +90,6 @@
                     <button type="submit" class="btn btn-primary">Change Price</button>
                 </div>
             </form>
-
-            <div ng-repeat="quote in quotes">
-                {{quote.quote}}  {{quote.author}}
-            </div>
         </script>
 
     </div>
