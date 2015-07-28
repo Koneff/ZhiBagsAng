@@ -20,5 +20,13 @@ router.get('/bags', function(req, res, next) {
     });
 });
 
+router.post('/bags', function(req,res,next){
+    var bag = new Bag(req.body);
+
+    bag.save(function(err,bag){
+        if(err){return next(err);}
+        res.json(bag);
+    })
+});
 
 module.exports = router;

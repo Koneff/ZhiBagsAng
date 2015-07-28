@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var QuoteSchema = new mongoose.schema({
+var QuoteSchema = new mongoose.Schema({
     quote: String,
     author: String
 });

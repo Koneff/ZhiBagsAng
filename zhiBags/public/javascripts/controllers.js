@@ -2,10 +2,10 @@ angular.module('zhibags.controllers',['zhibags.services'])
     .controller('MainCtrl', [
         '$scope',
         'bags',
-        function($scope, bags){
+        'quotes',
+        function($scope, bags, quotes){
             $scope.bags = bags.bags;
-
-
+            $scope.quotes = quotes.quotes;
             }
         ])
 

@@ -1,7 +1,13 @@
 angular.module('zhibags.services',[])
-    .factory('bags', [function(){
+    .factory('bags', ['$http',function($http){
         var o = {
             bags: []
+        };
+
+        o.getAll = function(){
+            return $http.get('/bags').success(function(data){
+                angular.copy(data, o.bags);
+            })
         };
         return o;
     }])

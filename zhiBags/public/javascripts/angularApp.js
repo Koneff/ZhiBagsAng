@@ -14,7 +14,12 @@ function($stateProvider,$urlRouterProvider){
         'admin',{
             url: '/admin',
             templateUrl: '/admin.html',
-            controller: 'AdminCtrl'
+            controller: 'AdminCtrl',
+            resolve: {
+                bagPromise: ['bags',function(bags){
+                    return bags.getAll()
+                }]
+            }
         }
     )
     $urlRouterProvider.otherwise('home');

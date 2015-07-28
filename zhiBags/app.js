@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-require('.models/Bags');
-require('.models/Quotes');
+require('./models/Bags.js');
+require('./models/Quotes');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
