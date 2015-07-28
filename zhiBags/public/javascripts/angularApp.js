@@ -7,7 +7,12 @@ function($stateProvider,$urlRouterProvider){
         'home',{
             url: '/home',
             templateUrl: '/home.html',
-            controller: 'MainCtrl'
+            controller: 'MainCtrl',
+            resolve: {
+                bagPromise: ['bags', function (bags) {
+                    return bags.getAll()
+                }]
+            }
         }
     )
         .state(
@@ -21,6 +26,6 @@ function($stateProvider,$urlRouterProvider){
                 }]
             }
         }
-    )
+    );
     $urlRouterProvider.otherwise('home');
 }]);

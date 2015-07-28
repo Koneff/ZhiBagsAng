@@ -86,6 +86,10 @@
                     <button type="submit" class="btn btn-primary">Change Price</button>
                 </div>
             </form>
+
+            <div ng-repeat="quote in quotes">
+                {{quote.quote}}  {{quote.author}}
+            </div>
         </script>
 
     </div>

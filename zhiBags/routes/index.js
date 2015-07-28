@@ -29,4 +29,21 @@ router.post('/bags', function(req,res,next){
     })
 });
 
+router.get('/quotes', function(req, res, next) {
+    Quote.find(function(err, quotes){
+        if(err){ return next(err); }
+
+        res.json(quotes);
+    });
+});
+
+router.post('/quotes', function(req,res,next){
+    var quote = new Quote(req.body);
+
+    quote.save(function(err,quote){
+        if(err){return next(err);}
+        res.json(quote);
+    })
+});
+
 module.exports = router;
