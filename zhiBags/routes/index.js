@@ -29,6 +29,30 @@ router.post('/bags', function(req,res,next){
     })
 });
 
+router.param('bag', function(req, res, next, id) {
+    var query = Bag.findById(id);
+
+    query.exec(function (err, bag){
+        if (err) { return next(err); }
+        if (!bag) { return next(new Error('can\'t find post')); }
+
+        req.bag = bag;
+        return next();
+    });
+});
+
+router.get('/bags/:bag', function(req, res) {
+    res.json(req.bag);
+});
+
+router.put('/bags/:bag/changePrice', function(req, res, next) {
+    req.bag.changePrice(function(err, bag){
+        if (err) { return next(err); }
+
+        res.json(bag);
+    });
+});
+
 router.get('/quotes', function(req, res, next) {
     Quote.find(function(err, quotes){
         if(err){ return next(err); }

@@ -16,6 +16,7 @@ angular.module('zhibags.controllers',['zhibags.services'])
         'quotes',
         function($scope, bags,quotes){
             $scope.bags = bags.bags;
+            $scope.dif = bags.dif;
             $scope.quotes = quotes.quotes;
             $scope.addBag = function(){
                 if(!$scope.title || $scope.title === '') { return; }
@@ -41,8 +42,9 @@ angular.module('zhibags.controllers',['zhibags.services'])
                 console.log($scope.quotes);
             };
 
-            $scope.changePrice = function(bag){
-
+            $scope.percentagePrice = function(bag,dif){
+                bags.changePrice(bag,dif);
+                $scope.dif = '';
             };
         }
 

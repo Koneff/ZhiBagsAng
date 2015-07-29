@@ -15,24 +15,31 @@ angular.module('zhibags.services',[])
                 o.bags.push(data);
             });
         };
+
+        o.changePrice = function(bag,dif) {
+            return $http.put('/bags/' + bag._id + '/changePrice')
+                .success(function(data){
+                    bag.price += Math.round((this.price*dif)/100);
+                });
+        };
         return o;
     }])
 
     .factory('quotes', ['$http',function($http){
-        var w = {
+        var o = {
             quotes: []
         };
 
-        w.getAll = function(){
+        o.getAll = function(){
             return $http.get('/quotes').success(function(data){
-                angular.copy(data, w.quotes);
+                angular.copy(data, o.quotes);
             })
         };
 
-        w.create = function(quote){
+        o.create = function(quote){
             return  $http.post('/quotes',quote).success(function(data){
-                w.quotes.push(data);
+                o.quotes.push(data);
             });
         };
-        return w;
+        return o;
     }]);
