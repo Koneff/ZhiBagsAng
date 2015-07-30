@@ -16,11 +16,17 @@ angular.module('zhibags.services',[])
             });
         };
 
-        o.changePrice = function(bag,dif) {
+        /*o.changePrice = function(bag,dif) {
             return $http.put('/bags/' + bag._id + '/changePrice')
                 .success(function(data){
                     bag.price += Math.round((this.price*dif)/100);
                 });
+        };*/
+
+        o.get = function(id){
+            return $http.get('/bags/'+id).then(function(res){
+                return res.data;
+            });
         };
         return o;
     }])

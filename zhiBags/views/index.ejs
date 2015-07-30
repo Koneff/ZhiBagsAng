@@ -27,15 +27,6 @@
 
         <script type="text/ng-template" id="/admin.html">
             <a href = "/#/home">Home page</a>
-            <nav class="navbar navbar-default">
-                <ul class="nav navbar-nav">
-                    <li><a href="/#/home">Home page</a></li>
-                    <li><a href="">Add bag/quote</a></li>
-                    <li><a ui-sref-active="active" ui-sref=".allbags">All bags</a></li>
-                    <li><a href="#/admin/#all_quotes">All quotes</a></li>
-                    <li><a href="/#/home">Change</a></li>
-                </ul>
-            </nav>
             <form ng-submit="addBag()"
                   style="margin-top:30px;">
                 <h3>Add a new bag</h3>
@@ -102,16 +93,22 @@
                     <button type="submit" class="btn btn-primary">Change Prices</button>
                 </div>
             </form>
+            <div ng-repeat="bag in bags">
+                <a href="#/bags/{{bag._id}}" target="_blank">{{bag.title}}</a>  {{bag.price}} грн
+            </div>
+            <div ng-repeat="quote in quotes">
+                {{quote.quote}}  {{quote.author}} <button>Delete</button>
+            </div>
             </div>
         </script>
-        <script type="text/ng-template" id="/admin-bags.html">
-            <div ng-repeat="bag in bags">
+
+        <script type="text/ng-template" id="/bags.html">
+            <div class="page-header">
                 <img src="{{bag.pic}}" alt="">
                 {{bag.title}}  {{bag.price}} грн
+                {{bag.desc}}
             </div>
         </script>
-
-
     </div>
 
 </div>

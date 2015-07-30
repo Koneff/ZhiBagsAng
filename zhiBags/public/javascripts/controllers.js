@@ -48,4 +48,14 @@ angular.module('zhibags.controllers',['zhibags.services'])
             };
         }
 
-    ]);
+    ])
+
+    .controller('BagsCtrl',[
+    '$scope',
+    'bags',
+    'bag',
+    function($scope,bags,bag){
+        //$scope.isLoggedIn = auth.isLoggedIn;
+        $scope.bag = bag;
+    }
+]);
