@@ -42,9 +42,16 @@ angular.module('zhibags.controllers',['zhibags.services'])
                 console.log($scope.quotes);
             };
 
+            $scope.deleteQuote = function(quote){
+                quotes.remove(quote);
+                console.log(quotes);
+            };
+
             $scope.percentagePrice = function(bag,dif){
-                bags.changePrice(bag,dif);
-                $scope.dif = '';
+                //bags.changePrice(bag,dif);
+                $scope.dif = {
+                    value: dif.value
+                }
             };
         }
 

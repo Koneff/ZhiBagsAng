@@ -47,5 +47,11 @@ angular.module('zhibags.services',[])
                 o.quotes.push(data);
             });
         };
+
+        o.remove = function(quote){
+            return $http.delete('/quotes',quote).success(function(data){
+                o.quotes.splice(data);
+            })
+        }
         return o;
     }]);

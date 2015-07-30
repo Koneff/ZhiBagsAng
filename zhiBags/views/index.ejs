@@ -88,16 +88,17 @@
                     <input type="number"
                            class="form-control"
                            placeholder="%"
-                           ng-model="dif"
+                           ng-model="dif.value"
                             >
                     <button type="submit" class="btn btn-primary">Change Prices</button>
+                    {{dif.value}}
                 </div>
             </form>
             <div ng-repeat="bag in bags">
                 <a href="#/bags/{{bag._id}}" target="_blank">{{bag.title}}</a>  {{bag.price}} грн
             </div>
             <div ng-repeat="quote in quotes">
-                {{quote.quote}}  {{quote.author}} <button>Delete</button>
+                {{quote.quote}}  {{quote.author}} <button ng-click="deleteQuote(quote)">Delete</button>
             </div>
             </div>
         </script>
