@@ -3,6 +3,94 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+html, body {
+    height: 100%; }
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0; }
+
+body {
+    color: white;
+    background-color: #06161a;
+    font-size: 16px;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+
 a {
   color: #00B7FF;
 }
+.site-content {
+    background: #06161a url('http://royaldignity.com/img/bg.jpg') center top no-repeat;
+    overflow: hidden;
+}
+section.top {
+    text-align: center;
+}
+blockquote {
+    font-family: 'geared_slabnormal';
+    font-style: normal;
+    margin: 10px 0;
+    font-size: 1.3em;
+    line-height: 1.61;
+    letter-spacing: 0.4px; }
+blockquote p {
+    margin: 0; }
+blockquote footer {
+    text-align: right; }
+blockquote cite {
+    font-family: 'roboto_slabthin';
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-style: normal; }
+blockquote cite:before {
+    content: "—";
+    position: relative;
+    right: 5px; }
+
+
+section.cta {
+    opacity: 1;
+    padding-bottom: 3em;
+    text-align: center;
+    font-size: 24px;
+}
+section.cta h1 {
+    font-size: 1.5em;
+}
+section.cta.text {
+    font-family: 'roboto_slablight';
+    font-size: 0.75em;
+}
+
+section.cta.text a {
+    color: #4c679e;
+    font-family: 'roboto_slabregular';
+    text-decoration: none;
+    border-bottom: 2px dotted #4c679e;
+}
+
+.priv {
+    float: left;
+    display: inline;
+    clear: none;
+    text-align: inherit;
+    padding-left: 0;
+    padding-right: 0;
+
+}
+
+section.contact {
+    padding-bottom: 2em;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 1em; }
+section.contact h1 {
+    font-size: 1.5em; }
+section.contact p {
+    font-family: 'roboto_slablight';
+    font-size: 0.75em; }
+section.contact a {
+    color: #ceaa80;
+    text-decoration: none; }
