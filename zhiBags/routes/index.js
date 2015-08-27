@@ -41,11 +41,43 @@ router.param('bag', function(req, res, next, id) {
     });
 });
 
-router.get('/bags/:bag', function(req, res) {
+router.get('/bags/:bag',function(req,res) {
     res.json(req.bag);
 });
+/*
+ router.put('/bags/:bag/change',function(req,res,next){
+ var query = {
+ title: req.body.title,
+ desc: req.body.desc,
+ pic: req.body.pic,
+ price: req.body.price
+ };
+ req.bag = {
+ title: req.body.title,
+ desc: req.body.desc,
+ pic: req.body.pic,
+ price: req.body.price
+ };
+ Bag.findOneAndUpdate(query, req.bag, {upsert:true}, function(err, bag){
+ if(err){return next(err);}
+ res.json(bag);
+ });
+ */
 
 
+router.put('/bags/:bag/upprice',function(req,res,next){
+    req.bag.upprice(function(err,bag){
+        if (err){return next(err);}
+        res.json(bag);
+    })
+});
+
+router.put('/bags/:bag/change',function(req,res,next){
+    req.bag.change(function(err,bag){
+        if (err){return next(err);}
+        res.json(bag);
+    })
+});
 
 router.get('/quotes', function(req, res, next) {
     Quote.find(function(err, quotes){
@@ -54,6 +86,8 @@ router.get('/quotes', function(req, res, next) {
         res.json(quotes);
     });
 });
+
+
 
 router.post('/quotes', function(req,res,next){
     var quote = new Quote(req.body);

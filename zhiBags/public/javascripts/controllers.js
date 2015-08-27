@@ -16,8 +16,8 @@ angular.module('zhibags.controllers',['zhibags.services'])
         'quotes',
         function($scope, bags,quotes){
             $scope.bags = bags.bags;
-            $scope.dif = bags.dif;
             $scope.quotes = quotes.quotes;
+           // $scope.bag = bag;
             $scope.addBag = function(){
                 if(!$scope.title || $scope.title === '') { return; }
                 bags.create({
@@ -31,6 +31,15 @@ angular.module('zhibags.controllers',['zhibags.services'])
                 $scope.pic = '';
             };
 
+
+            $scope.percentagePrice = function(){
+                if(!$scope.dif || $scope.dif === 0) { return; }
+              var perc = {
+                    dif: $scope.dif
+                }
+                console.log(perc.dif+'%')
+            }
+
             $scope.addQuote = function(){
                 if(!$scope.quote || $scope.quote === '') { return; }
                 quotes.create({
@@ -39,20 +48,8 @@ angular.module('zhibags.controllers',['zhibags.services'])
                 });
                 $scope.quote = '';
                 $scope.author = '';
-                console.log($scope.quotes);
             };
 
-            $scope.deleteQuote = function(quote){
-                quotes.remove(quote);
-                console.log(quotes);
-            };
-
-            $scope.percentagePrice = function(bag,dif){
-                //bags.changePrice(bag,dif);
-                $scope.dif = {
-                    value: dif.value
-                }
-            };
         }
 
     ])
@@ -62,7 +59,20 @@ angular.module('zhibags.controllers',['zhibags.services'])
     'bags',
     'bag',
     function($scope,bags,bag){
-        //$scope.isLoggedIn = auth.isLoggedIn;
         $scope.bag = bag;
+        $scope.title = bag.title;
+        $scope.desc = bag.desc;
+        $scope.pic = bag.pic;
+        $scope.price = bag.price;
+        console.log(bag);
+
+        $scope.incrementPrice = function(bag){
+            bags.upprice(bag);
+            console.log(bags.upprice(bag))
+        };
+        $scope.changeBag = function(bag){
+            bags.change(bag);
+            console.log(bags.change(bag));
+        }
     }
 ]);
